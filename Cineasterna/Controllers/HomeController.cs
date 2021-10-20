@@ -23,7 +23,12 @@ namespace Cineasterna.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Browse()
+        {
+            return View();
+        }
+
+        public IActionResult Movie()
         {
             return View();
         }

@@ -1,0 +1,51 @@
+#specificmovie-banner {
+    text-align: left;
+    color: #ffc300;
+    width: 60%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#specificmovie-container {
+    background-color: darkgray;
+    display: flex;
+    width: 60%;
+    flex-wrap: wrap;
+    border-style: solid;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+#movie-information {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+
+
+#image-container {
+    height: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#movie-information2 {
+    padding-top: 20px;
+    width: 100%;
+}
+
+#plottext {
+    font-size: 1.2em;
+}
+
+#IMDbtext {
+    font-size: x-large;
+}
+
+#cMDBtext {
+    font-size: x-large;
+}
+
+#rottentomatoestext {
+    font-size: x-large;
+}
