@@ -2,4 +2,4 @@
 Interaktiva webbapplikationer, hösten 2021
 
 
-Min readme!
+Detta projekt föreställer Cineasternas hemsida, en motsvarighet till IMDB för sanna filmentusiaster!
