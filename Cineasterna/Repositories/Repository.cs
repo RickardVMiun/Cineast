@@ -11,7 +11,7 @@ namespace Cineasterna.Repositories
     {
         private readonly IApiClient apiClient;
         private readonly string baseEndpoint = "https://grupp9.dsvkurs.miun.se/api";
-        private readonly string baseEndpoint2 = "http://www.omdbapi.com/?i=tt0120338&apikey=b040ce7c";
+        private readonly string baseEndpoint2 = "http://www.omdbapi.com/?apikey=b040ce7c&";
 
         public Repository(IApiClient apiClient)
         {
@@ -23,9 +23,9 @@ namespace Cineasterna.Repositories
             return result;
         }
 
-        public async Task<GetMoviesOmdbDTO> GetMoviesOmdb()
+        public async Task<GetMoviesOmdbDTO> GetMoviesOmdb(string imdbID)
         {
-            var result = await apiClient.GetAsync<GetMoviesOmdbDTO>(baseEndpoint2);
+            var result = await apiClient.GetAsync<GetMoviesOmdbDTO>($"{baseEndpoint2}i={imdbID}");
             return result;
         }
     }

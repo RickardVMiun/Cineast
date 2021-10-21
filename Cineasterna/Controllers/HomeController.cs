@@ -20,10 +20,26 @@ namespace Cineasterna.Controllers
             this.repository = repository;
         }
 
+
         public async Task<IActionResult> Index()
         {
+            var GetMoviesDto = new List<GetMoviesDto>();
+            var imdblist = new List<GetMoviesOmdbDTO>();
             var model = await repository.GetMovies();
-            var model2 = await repository.GetMoviesOmdb();
+
+            foreach (var item in model)
+            {
+                GetMoviesDto.Add(item);
+            }
+
+            for (int i = 0; i < GetMoviesDto.Count; i++)
+            {
+                var model2 = await repository.GetMoviesOmdb(GetMoviesDto[i].imdbID);
+                imdblist.Add(model2);
+            }
+
+
+
             return View(model);
         }
 
