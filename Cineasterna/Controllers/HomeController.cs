@@ -23,6 +23,7 @@ namespace Cineasterna.Controllers
         public async Task<IActionResult> Index()
         {
             var model = await repository.GetMovies();
+            var model2 = await repository.GetMoviesOmdb();
             return View(model);
         }
 

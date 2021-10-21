@@ -1,4 +1,5 @@
-﻿@{
+﻿@model GetMoviesDto[]
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -10,6 +11,12 @@
     <div id="topmovie-plot">
         <h2 id="topmovie-title-header-text">{Title here}</h2><br>
         <p>Plot: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printing and typesetting industry. Lorem Ipsum has been printing and typesetting industry. Lorem Ipsum has been | <span style="color:white">Read more...</span></p>
+        <div>
+        @foreach (var item in Model)
+        {
+           <p> @item.imdbID</p>        
+        }
+        </div>
         <br>
 
         <h2 id="topmovie-ratings-text">Ratings</h2>
