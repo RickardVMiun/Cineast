@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Cineasterna.Models;
+using Cineasterna.Repositories;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,10 +12,12 @@ namespace Cineasterna.Controllers
 {
     public class BrowseController : Controller
     {
-        
-        public IActionResult Index()
+
+        private IRepository repository;
+
+        public BrowseController(IRepository repository)
         {
-            return View();
+            this.repository = repository;
         }
     }
 }

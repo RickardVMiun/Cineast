@@ -1,5 +1,19 @@
-﻿@{
+﻿@model List<GetMoviesOmdbDTO>
+
+@{
     ViewData["Title"] = "Browse";
 }
 
-<p>Testar om browse funkar</p>
+<div>
+    @foreach (var item in Model)
+    {
+        <p>@item.Title</p>
+    }
+</div>
+
+<div>
+   @foreach (var item in Model)
+   {
+       <p>@item.Plot</p>
+   }
+</div>

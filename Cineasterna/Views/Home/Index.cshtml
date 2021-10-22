@@ -1,4 +1,4 @@
-﻿@model GetMoviesDto[]
+﻿@model List<GetMoviesOmdbDTO> 
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -14,11 +14,13 @@
         <div>
         @foreach (var item in Model)
         {
-           <p> @item.imdbID</p>        
+            <p>@item.Title</p>
         }
         </div>
+        <p>
+           
+        </p>
         <br>
-
         <h2 id="topmovie-ratings-text">Ratings</h2>
         <p>IMDB: 5/5</p>
         <p>RT: 8/10</p>
