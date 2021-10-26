@@ -125,6 +125,14 @@ padding-right: 40px;
     padding-bottom: 15px;
 }
 
+#othermovies-banner {
+    text-align: left;
+    color: #ffc300;
+    width: 60%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 #topmovie-banner h1{
     justify-content: left;
 }
@@ -136,6 +144,16 @@ padding-right: 40px;
     border-style: solid;
     padding: 20px;
     border-radius: 25px;  
+}
+
+#othermovies {
+    background-color: darkgray;
+    display: flex;
+    width: 60%;
+    flex-wrap: wrap;
+    border-style: solid;
+    padding: 45px;
+    border-radius: 25px;
 }
 #topmovie-image{
 height: auto;

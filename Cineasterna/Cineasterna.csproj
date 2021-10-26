@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Mock\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 

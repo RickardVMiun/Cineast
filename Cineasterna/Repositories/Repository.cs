@@ -17,15 +17,31 @@ namespace Cineasterna.Repositories
         {
             this.apiClient = apiClient;
         }
+
+        //Hämta alla filmer i CMDB
         public async Task<GetMoviesDto[]> GetMovies()
         {
             var result = await apiClient.GetAsync<GetMoviesDto[]>($"{baseEndpoint}/movie");
             return result;
         }
 
+        public async Task <GetMoviesDto[]> GetTopList()
+        {
+            var result = await apiClient.GetAsync<GetMoviesDto[]>($"{baseEndpoint}/toplist");
+            return result;
+        }
+
+        // Hämta alla filmer från OMDB som finns i CMDB's databas
         public async Task<GetMoviesOmdbDTO> GetMoviesOmdb(string imdbID)
         {
             var result = await apiClient.GetAsync<GetMoviesOmdbDTO>($"{baseEndpoint2}i={imdbID}");
+            return result;
+        }
+
+        // Hämta ut vald film med en längre plot
+        public async Task<GetMoviesOmdbDTO> GetLongPlot(string imdbID)
+        {
+            var result = await apiClient.GetAsync<GetMoviesOmdbDTO>($"{baseEndpoint2}&i={imdbID}&plot=full");
             return result;
         }
     }

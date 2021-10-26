@@ -14,6 +14,8 @@ namespace Cineasterna.Repositories
         /// </summary>
         /// <returns></returns>
         Task<GetMoviesDto[]> GetMovies();
+        Task<GetMoviesDto[]> GetTopList();
         Task<GetMoviesOmdbDTO> GetMoviesOmdb(string imdbID);
+        Task<GetMoviesOmdbDTO> GetLongPlot(string imdbID);
     }
 }

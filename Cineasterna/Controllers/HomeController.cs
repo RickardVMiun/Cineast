@@ -12,65 +12,50 @@ namespace Cineasterna.Controllers
 {
     public class HomeController : Controller
     {
-
         private IRepository repository;
-
         public HomeController(IRepository repository)
         {
             this.repository = repository;
         }
-
-
         public async Task<IActionResult> Index()
         {
             // Ta reda på vilken film som har högst antal upvotes
 
             var GetMoviesDto = new List<GetMoviesDto>();
             var imdbList = new List<GetMoviesOmdbDTO>();
-            var copyObjectWithMostUpvotes = new List<GetMoviesOmdbDTO>();
-            var model = await repository.GetMovies();
+            var allMoviesFromCMDB = await repository.GetMovies();
+            var toplistFromCMDB = await repository.GetTopList();
 
-            foreach (var item in model)
+            //Skapa upp lista med filmer från CMDb-api:et
+            foreach (var item in toplistFromCMDB)
             {
                 GetMoviesDto.Add(item);
             }
 
+            //Populera imdbList med filmerna som finns i CMDb's arkiv, fast med kompletterande information från OMDb.
             for (int i = 0; i < GetMoviesDto.Count; i++)
             {
                 var model2 = await repository.GetMoviesOmdb(GetMoviesDto[i].imdbID);
                 imdbList.Add(model2);
             }
-            var item2 = GetMoviesDto.Max(x => x.numberOfLikes);
-            var mostUpvotedMovie = GetMoviesDto.First(x => x.numberOfLikes == item2);
 
-            // Objekt med den högst rankade filmen i cMDB.
-            copyObjectWithMostUpvotes.Add(imdbList.First(x => x.imdbID == mostUpvotedMovie.imdbID));
-            return View(copyObjectWithMostUpvotes);
-        }
 
-        public async  Task<IActionResult> Browse()
-        {
-            var GetMoviesDto = new List<GetMoviesDto>();
-            var imdblist = new List<GetMoviesOmdbDTO>();
-            var model = await repository.GetMovies();
+            //Skapa en ny lista baserat på TopMovieDTO's som har både GetMoviesDTO och GetMoviesOMDBDto som properties.
+            List<TopMovieDto> Topmovies = new List<TopMovieDto>();
 
-            foreach (var item in model)
+            for (int i = 0; i < imdbList.Count; i++)
             {
-                GetMoviesDto.Add(item);
+                var modell = new TopMovieDto();
+                modell.getMoviesOmdbDTO = imdbList[i];
+                modell.getMoviesDto = GetMoviesDto[i];
+                Topmovies.Add(modell);
             }
 
-            for (int i = 0; i < GetMoviesDto.Count; i++)
-            {
-                var model2 = await repository.GetMoviesOmdb(GetMoviesDto[i].imdbID);
-                imdblist.Add(model2);
-            }
-            return View(imdblist);
+            return View(Topmovies);
         }
-
         public IActionResult Movie()
         {
             return View();
         }
- 
     }
 }
