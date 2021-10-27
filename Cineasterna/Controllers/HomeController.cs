@@ -30,5 +30,14 @@ namespace Cineasterna.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<ActionResult> FetchMovie(SearchViewModel model)
+        {
+            var searchedMovie = await repository.GetMovieByTitle(model.Query);
+
+            MovieViewModel movieViewModel = new MovieViewModel(searchedMovie);
+            return View("~/Views/Home/Movie.cshtml", movieViewModel);
+        }
     }
 }
