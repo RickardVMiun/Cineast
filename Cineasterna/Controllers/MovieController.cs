@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Cineasterna.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,14 @@ namespace Cineasterna.Controllers
 {
     public class MovieController : Controller
     {
-        public IActionResult Index()
+
+        private IRepository repository;
+
+        public MovieController(IRepository repository)
+        {
+            this.repository = repository;
+        }
+        public IActionResult Movie()
         {
             return View();
         }

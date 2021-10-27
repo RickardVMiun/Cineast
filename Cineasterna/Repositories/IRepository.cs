@@ -13,9 +13,10 @@ namespace Cineasterna.Repositories
         /// Retrieves all movies from CMDB api.
         /// </summary>
         /// <returns></returns>
-        Task<GetMoviesDto[]> GetMovies();
-        Task<GetMoviesDto[]> GetTopList();
-        Task<GetMoviesOmdbDTO> GetMoviesOmdb(string imdbID);
+        Task<List<GetMoviesDto>> GetMovies();
+        Task<List<GetMoviesDto>> GetTopList();
+        Task<List<GetMoviesOmdbDTO>> GetMoviesOmdb(IEnumerable<GetMoviesDto> moviesFromCmdb);
         Task<GetMoviesOmdbDTO> GetLongPlot(string imdbID);
+        Task<GetMoviesOmdbDTO> GetMovieByTitle(string imdbID);
     }
 }

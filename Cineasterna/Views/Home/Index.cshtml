@@ -1,19 +1,19 @@
-﻿@model List<TopMovieDto>
-@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model HomeViewModel
+
+<title>@ViewData["Title"]Cineasternas startsida</title>
+
 
 <div id="topmovie-banner">
     <h1>Top movie</h1>
 </div>
 <div id="topmovie">
-    <img id="topmovie-image" src="@Model[0].getMoviesOmdbDTO.Poster">
+    <img id="topmovie-image" src="@Model.MoviesFromOMDB[0].Poster">
     <div id="topmovie-plot">
-        <h2 id="topmovie-title-header-text">@Model[0].getMoviesOmdbDTO.Title</h2><br>
-        <p id="plot">@Model[0].getMoviesOmdbDTO.Plot | <button onclick="readmore();" id="readmore">Läs mer..</button></p>
+        <h2 id="topmovie-title-header-text">@Model.MoviesFromOMDB[0].Title</h2><br>
+        <p id="plot">@Model.MoviesFromOMDB[0].Plot|<button onclick="readmore();" id="readmore">Läs mer..</button></p>
         <div>
             <p>
-                Actors: @Model[0].getMoviesOmdbDTO.Actors
+                Actors: @Model.MoviesFromOMDB[0].Actors
             </p>
         </div>
         <p>
@@ -21,9 +21,9 @@
         </p>
         <br>
         <h2 id="topmovie-ratings-text">Ratings</h2>
-        <p>IMDB: @Model[0].getMoviesOmdbDTO.Ratings[0].Value</p>
-        <p>cMDB Upvotes: @Model[0].getMoviesDto.numberOfLikes </p>
-        <p>cMDB Downvotes: @Model[0].getMoviesDto.numberOfDislikes </p>
+        <p>IMDB: @Model.MoviesFromOMDB[0].Ratings[0].Value</p>
+        <p>cMDB Upvotes: @Model.MoviesFromOMDB[0].numberOfLikes </p>
+        <p>cMDB Downvotes: @Model.MoviesFromOMDB[0].numberOfDislikes </p>
     </div>
 </div>
     <div id="othermovies-banner">
@@ -31,26 +31,16 @@
     </div>
 
     <div id="othermovies">
+        @for (int i = 1; i < 4; i++)
+        {
         <div id="secondmovie">
-            <img src="@Model[1].getMoviesOmdbDTO.Poster">
-            <h1>@Model[1].getMoviesOmdbDTO.Title</h1>
-            <p>IMDB: @Model[1].getMoviesOmdbDTO.Ratings[0].Value </p>
-            <p>cMDB Upvotes: @Model[1].getMoviesDto.numberOfLikes </p>
+            <img src="@Model.MoviesFromOMDB[i].Poster">
+            <h1>@Model.MoviesFromOMDB[i].Title</h1>
+            <p>IMDB: @Model.MoviesFromOMDB[i].Ratings[0].Value </p>
+            <p>cMDB Upvotes: @Model.MoviesFromOMDB[i].numberOfLikes </p>
+            <p>cMDB Downvotes: @Model.MoviesFromOMDB[i].numberOfDislikes </p>
             <p>Läs mer...</p>
         </div>
-        <div id="thirdmovie">
-            <img src="@Model[2].getMoviesOmdbDTO.Poster">
-            <h1>@Model[2].getMoviesOmdbDTO.Title</h1>
-            <p>IMDB: @Model[2].getMoviesOmdbDTO.Ratings[0].Value</p>
-            <p>cMDB Upvotes: @Model[2].getMoviesDto.numberOfLikes </p>
-            <p>Läs mer...</p>
-        </div>
-        <div id="fourthmovie">
-            <img src="@Model[3].getMoviesOmdbDTO.Poster">
-            <h1>@Model[3].getMoviesOmdbDTO.Title</h1>
-            <p>IMDB: @Model[3].getMoviesOmdbDTO.Ratings[0].Value</p>
-            <p>cMDB Upvotes: @Model[3].getMoviesDto.numberOfLikes </p>
-            <p>Läs mer...</p>
-        </div>
+        }  
     </div>
 
