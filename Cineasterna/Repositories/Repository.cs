@@ -11,7 +11,7 @@ namespace Cineasterna.Repositories
     {
         private readonly IApiClient apiClient;
         private readonly string baseEndpoint = "https://grupp9.dsvkurs.miun.se/api";
-        private readonly string baseEndpoint2 = "http://www.omdbapi.com/?apikey=b040ce7c&";
+        private readonly string baseEndpoint2 = "http://www.omdbapi.com/?apikey=b040ce7c";
 
         public Repository(IApiClient apiClient)
         {
@@ -36,7 +36,7 @@ namespace Cineasterna.Repositories
             for (int i = 0; i < moviesFromCmdb.Count(); i++)
             {
                 // Get movie from OMDB
-                var movie = apiClient.GetAsync<GetMoviesOmdbDTO>($"{baseEndpoint2}&i={moviesFromCmdb.ElementAt(i).imdbID}");
+                var movie = apiClient.GetAsync<GetMoviesOmdbDTO>($"{baseEndpoint2}&i={moviesFromCmdb.ElementAt(i).imdbID}&plot=full");
                 // Lägger vi den i en lista
                 //var model2 = await repository.GetMoviesOmdb(GetMoviesDto[i].imdbID);
                 tasks.Add(movie);
@@ -56,7 +56,7 @@ namespace Cineasterna.Repositories
         public async Task<GetMoviesOmdbDTO> GetLongPlot(string imdbID) => await apiClient.GetAsync<GetMoviesOmdbDTO>($"{baseEndpoint2}&i={imdbID}&plot=full");
         
         // Hämta film beroende på titel
-        public async Task<GetMoviesOmdbDTO> GetMovieByTitle(string title) => await apiClient.GetAsync<GetMoviesOmdbDTO>($"{baseEndpoint2}&t={title}");
+        public async Task<GetMoviesOmdbDTO> GetMovieByTitle(string title) => await apiClient.GetAsync<GetMoviesOmdbDTO>($"{baseEndpoint2}&t={title}&plot=full");
         
     }
 }

@@ -2,7 +2,6 @@
 
 <title>@ViewData["Title"]Cineasternas startsida</title>
 
-
 <div id="topmovie-banner">
     <h1>Top movie</h1>
 </div>
@@ -10,7 +9,10 @@
     <img id="topmovie-image" src="@Model.MoviesFromOMDB[0].Poster">
     <div id="topmovie-plot">
         <h2 id="topmovie-title-header-text">@Model.MoviesFromOMDB[0].Title</h2><br>
-        <p id="plot">@Model.MoviesFromOMDB[0].Plot|<button onclick="readmore();" id="readmore">Läs mer..</button></p>
+        <p id="plottext">@Model.MoviesFromOMDB[0].Plot</p>
+        <button id="read-more">
+            Läs mer
+        </button>
         <div>
             <p>
                 Actors: @Model.MoviesFromOMDB[0].Actors
@@ -24,6 +26,7 @@
         <p>IMDB: @Model.MoviesFromOMDB[0].Ratings[0].Value</p>
         <p>cMDB Upvotes: @Model.MoviesFromOMDB[0].numberOfLikes </p>
         <p>cMDB Downvotes: @Model.MoviesFromOMDB[0].numberOfDislikes </p>
+
     </div>
 </div>
     <div id="othermovies-banner">
@@ -43,4 +46,5 @@
         </div>
         }  
     </div>
+    
 

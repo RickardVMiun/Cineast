@@ -4,8 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/css/styles.css" rel="stylesheet" />
     <link href="~/css/styles-specificmovie.css" rel="stylesheet" />
-
+    
     <meta charset="UTF-8" />
+
+
 </head>
 <body>
     <header id="mainheader">
@@ -17,22 +19,22 @@
             <a class="active" href="/home/index">Home</a>
             <a href="/home/browse">Browse</a>
             <div class="search-container">
-                <form action="/action_page.php">
-                    <input id="searchstring" type="text" placeholder="Search.." name="search">
-                    <button type="submit">Submit</button>
-                </form>
+
+                @using (Html.BeginForm("FetchMovie", "Home", FormMethod.Post))
+                {
+                    @Html.TextBox("Query")
+                    <input type="submit" value="Search" />
+                }
+
             </div>
         </div>
     </div>
 
-    @using (Html.BeginForm("FetchMovie", "Home", FormMethod.Post))
-    {
-        @Html.TextBox("Query")
-        <input type="submit" value="Search" />
-    }
+
     @RenderBody()
     <footer id="footer-container">
         <h2>Cineasterna 2021</h2>
     </footer>
+    <script type="text/javascript" src="~/js/site.js"></script>
 </body>
 </html>

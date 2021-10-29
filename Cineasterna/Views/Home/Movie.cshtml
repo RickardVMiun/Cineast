@@ -1,6 +1,10 @@
 ﻿@model MovieViewModel
 
-<title>@ViewData["Title"]Insert titel här när du fattar hur man gör</title>
+<script language="javascript" type="text/javascript">
+    var jsImdbID = '@Model.Movie.imdbID';
+</script>
+
+<title>@ViewData["Title"]@Model.Movie.Title</title>
 
 
 <div id="specificmovie-banner">
@@ -16,8 +20,14 @@
         <br>
         <h1>Ratings</h1>
         <br>
-        <p id="IMDbtext">IMDb: @Model.Movie.Ratings[0].Value</p>
-        <p id="cMDBtext">cMDB: {cMDBScore}</p>
+        <p id="IMDbtext">IMDb:</p><p id="IMDBvalue">@Model.Movie.Ratings[0].Value</p>
+        <p id="cMDBtextlikes">cMDB Upvotes:</p><p id="cMDBvalueup">@Model.Movie.numberOfLikes</p>
+        <p id="cMDBtextdislikes">cMDB Downvotes:</p><p id="cMDBvaluedown">@Model.Movie.numberOfDislikes</p>
+
+
+
+
+        <button id="upvoteButton">Gilla</button> <button id="downvoteButton">Ogilla</button>
     </div>
     <div id="movie-information2">
         <h1>Stars</h1>
