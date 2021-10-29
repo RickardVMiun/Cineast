@@ -2,6 +2,11 @@
 
 <title>@ViewData["Title"]Cineasternas startsida</title>
 
+<script language="javascript" type="text/javascript">
+    var longPlot = '@Model.MoviesFromOMDB[0].Plot'
+    var shortPlot = '@Model.MoviesFromOMDB[0].Longplot';
+</script>
+
 <div id="topmovie-banner">
     <h1>Top movie</h1>
 </div>
@@ -9,8 +14,8 @@
     <img id="topmovie-image" src="@Model.MoviesFromOMDB[0].Poster">
     <div id="topmovie-plot">
         <h2 id="topmovie-title-header-text">@Model.MoviesFromOMDB[0].Title</h2><br>
-        <p id="plottext">@Model.MoviesFromOMDB[0].Plot</p>
-        <button id="read-more">
+        <div id="topmovie-plottext">@Model.MoviesFromOMDB[0].Longplot</div>
+        <button id="morelink">
             Läs mer
         </button>
         <div>
@@ -47,4 +52,5 @@
         }  
     </div>
     
+    <script type="text/javascript" src="~/js/site.js"></script>
 

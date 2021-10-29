@@ -15,14 +15,8 @@
     padding-top: 25px;
 }
 
-.plottext {
-    height: 2.3rem;
-    overflow: hidden;
-}
 
-.plottext.active {
-    overflow: visible;
-}
+
 
 body {
     background-color: darkslategrey;
@@ -180,22 +174,26 @@ padding-right: 50px;
 #topmovie-title-header-text, #topmovie-ratings-text{
     color: #34568B;
 }
-#topmovie-plot{
+#topmovie-plot {
     padding-top: 30px;
-    font-family:monospace;
+    font-family: monospace;
     font-size: x-large;
     width: 50%;
     padding-right: 15px;
 }
 
+#topmovie-plottext{
+
+}
+
 #topmovie-container {
-  background-color: darkgray;
-  display: flex;
-  width: 60%;
-  flex-wrap: wrap;
-  border-style: solid;
-  padding: 20px;
-  border-radius: 25px;  
+    background-color: darkgray;
+    display: flex;
+    width: 60%;
+    flex-wrap: wrap;
+    border-style: solid;
+    padding: 20px;
+    border-radius: 25px;
 }
 
 #footer-container {
