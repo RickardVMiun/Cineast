@@ -5,10 +5,6 @@ function textmanipulator() {
 
 }
 
-
-
-
-
 function getLongPlot() {
     return longPlot;
 }

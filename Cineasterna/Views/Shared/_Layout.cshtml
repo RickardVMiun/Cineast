@@ -17,13 +17,11 @@
         <div class="topnav">
             <a class="active" href="/home/index">Home</a>
             <div class="search-container">
-
                 @using (Html.BeginForm("FetchMovie", "Home", FormMethod.Post))
                 {
                     @Html.TextBox("Query")
                     <input type="submit" value="Search" />
                 }
-
             </div>
         </div>
     </div>

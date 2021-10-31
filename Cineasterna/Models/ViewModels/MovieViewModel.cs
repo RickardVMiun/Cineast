@@ -24,11 +24,6 @@ namespace Cineasterna.Models
                     }
                 }
             }
-
-            if (movie.numberOfLikes == 0)
-            {
-                movie.numberOfLikes = 0;
-            }
         }
     }
 }

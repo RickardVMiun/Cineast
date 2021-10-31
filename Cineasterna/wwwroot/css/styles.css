@@ -15,9 +15,6 @@
     padding-top: 25px;
 }
 
-
-
-
 body {
     background-color: darkslategrey;
     background-repeat: no-repeat;
@@ -166,16 +163,16 @@ padding-right: 40px;
     padding: 45px;
     border-radius: 25px;
 }
-#topmovie-image{
-height: auto;
-width: 50%;
-padding-right: 50px;
+#topmovie-image {
+    max-height: 500px;
+    height: 70%;
+    width: auto;
 }
-#topmovie-title-header-text, #topmovie-ratings-text{
+#topmovie-title-header-text, #topmovie-ratings-text, #topmovie-actors-header-text {
     color: #34568B;
 }
 #topmovie-plot {
-    padding-top: 30px;
+   
     font-family: monospace;
     font-size: x-large;
     width: 50%;
@@ -184,6 +181,10 @@ padding-right: 50px;
 
 #topmovie-plottext{
 
+}
+
+#topmovie-actors{
+    padding-top: 15px;
 }
 
 #topmovie-container {
@@ -206,3 +207,52 @@ padding-right: 50px;
     padding: 0.6em;
     color: #ffc300;
 }
+
+#errorh1 {
+    display: table;
+    margin: 0 auto;
+    padding: 5px;
+    color: white;
+    padding-top: 50px;
+}
+
+
+#morelink {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+    #morelink span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+        #morelink span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+    #morelink:hover span {
+        padding-right: 25px;
+    }
+
+        #morelink:hover span:after {
+            opacity: 1;
+            right: 0;
+        }

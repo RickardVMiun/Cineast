@@ -11,28 +11,33 @@
     <h1>Top movie</h1>
 </div>
 <div id="topmovie">
-    <img id="topmovie-image" src="@Model.MoviesFromOMDB[0].Poster">
-    <div id="topmovie-plot">
-        <h2 id="topmovie-title-header-text">@Model.MoviesFromOMDB[0].Title</h2><br>
-        <div id="topmovie-plottext">@Model.MoviesFromOMDB[0].Longplot</div>
-        <button id="morelink">
-            Läs mer
-        </button>
-        <div>
-            <p>
-                Actors: @Model.MoviesFromOMDB[0].Actors
-            </p>
-        </div>
-        <p>
+    
+        <img id="topmovie-image" src="@Model.MoviesFromOMDB[0].Poster">
+    
+        <div id="topmovie-plot">
+            <a href="@Url.Action("FetchTopMovie", "Home", FormMethod.Post)">
+                <h2 id="topmovie-title-header-text">@Model.MoviesFromOMDB[0].Title</h2><br>
+            </a>
+                <div id="topmovie-plottext">@Model.MoviesFromOMDB[0].Longplot</div>
+                <button id="morelink" style="vertical-align:middle"><span>More..</span>
+                    
+                </button>
+                <div id="topmovie-actors">
+                    <h2 id="topmovie-actors-header-text">Actors</h2>
+                    <p>
+                        @Model.MoviesFromOMDB[0].Actors
+                    </p>
+                </div>
+                <p>
 
-        </p>
-        <br>
-        <h2 id="topmovie-ratings-text">Ratings</h2>
-        <p>IMDB: @Model.MoviesFromOMDB[0].Ratings[0].Value</p>
-        <p>cMDB Upvotes: @Model.MoviesFromOMDB[0].numberOfLikes </p>
-        <p>cMDB Downvotes: @Model.MoviesFromOMDB[0].numberOfDislikes </p>
+                </p>
+                <br>
+                <h2 id="topmovie-ratings-text">Ratings</h2>
+                <p>IMDB: @Model.MoviesFromOMDB[0].Ratings[0].Value</p>
+                <p>cMDB Upvotes: @Model.MoviesFromOMDB[0].numberOfLikes </p>
+                <p>cMDB Downvotes: @Model.MoviesFromOMDB[0].numberOfDislikes </p>
 
-    </div>
+</div>
 </div>
     <div id="othermovies-banner">
         <h1>Other movies</h1>
@@ -47,10 +52,10 @@
             <p>IMDB: @Model.MoviesFromOMDB[i].Ratings[0].Value </p>
             <p>cMDB Upvotes: @Model.MoviesFromOMDB[i].numberOfLikes </p>
             <p>cMDB Downvotes: @Model.MoviesFromOMDB[i].numberOfDislikes </p>
-            <p>Läs mer...</p>
         </div>
         }  
     </div>
-    
     <script type="text/javascript" src="~/js/site.js"></script>
+
+
 

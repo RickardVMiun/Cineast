@@ -28,10 +28,6 @@ namespace Cineasterna.Controllers
             
             return View(homeViewModel);
         }
-        public IActionResult Movie()
-        {
-            return View();
-        }
 
         [HttpPost]
         public async Task<ActionResult> FetchMovie(SearchViewModel model)
@@ -47,7 +43,6 @@ namespace Cineasterna.Controllers
             {
                 return View("~/Views/Home/Error.cshtml");
             }
-
         }
     }
 }

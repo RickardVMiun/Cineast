@@ -13,30 +13,29 @@
 <div id="specificmovie-container">
     <div id="image-container"><img src="@Model.Movie.Poster"></div>
     <div id="movie-information">
-        <h1>@Model.Movie.Title</h1>
+        <h1 id="movie-title">@Model.Movie.Title</h1>
         <p>Length: @Model.Movie.Runtime | Genre: @Model.Movie.Genre</p>
         <br>
         <p id="plottext">@Model.Movie.Plot</p>
         <br>
-        <h1>Ratings</h1>
+        <h1 id="movie-ratings">Ratings</h1>
         <br>
         <p id="IMDbtext">IMDb:</p><p id="IMDBvalue">@Model.Movie.Ratings[0].Value</p>
         <p id="cMDBtextlikes">cMDB Upvotes:</p><p id="cMDBvalueup">@Model.Movie.numberOfLikes</p>
         <p id="cMDBtextdislikes">cMDB Downvotes:</p><p id="cMDBvaluedown">@Model.Movie.numberOfDislikes</p>
-
-
-
-
-        <button id="upvoteButton">Gilla</button> <button id="downvoteButton">Ogilla</button>
+        <br>
+        <button id="upvoteButton" role="button">Upvote</button> 
+        <button id="downvoteButton" role="button">Downvote</button>
+        <br>
     </div>
     <div id="movie-information2">
-        <h1>Stars</h1>
+        <h1 id="movie-stars">Stars</h1>
         <p>@Model.Movie.Actors</p>
         <br>
-        <h1>Director</h1>
+        <h1 id="movie-director">Director</h1>
         <p>@Model.Movie.Director</p>
         <br>
-        <h1>Writers</h1>
+        <h1 id="movie-writers">Writers</h1>
         <p>@Model.Movie.Writer</p>
     </div>
 

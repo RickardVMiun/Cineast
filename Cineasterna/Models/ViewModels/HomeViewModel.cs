@@ -26,15 +26,19 @@ namespace Cineasterna.Models
             }
 
             //Förkorta plot om x.plot är kortare än x bokstäver.
+            int amountOfChars = 150;
 
             for (int i = 0; i < moviesFromOMDB.Count; i++)
             {
-                if (moviesFromOMDB[i].Plot.Length > 130)
+                if (moviesFromOMDB[i].Plot.Length > amountOfChars)
                 {
-                    moviesFromOMDB[i].Longplot = moviesFromOMDB[i].Plot.Remove(130);
+                    moviesFromOMDB[i].Longplot = moviesFromOMDB[i].Plot.Remove(amountOfChars) + "..";
+                    
                 }
             }
 
         }
+
+        
     }
 }
