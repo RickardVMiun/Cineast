@@ -13,6 +13,9 @@ Målet var att designa en trevlig hemsida där kravet var att plocka information
 Förstasidan
 
 ![Förstasidan](https://i.imgur.com/Er6r8ai.png)
-Detaljsidan
 
+Detaljsidan
 ![Detaljsidan](https://i.imgur.com/XK0HOXz.png)
+
+Sökfunktio samt upvote
+![Förstasidan](https://i.imgur.com/Qk7sWrJ.gif)
