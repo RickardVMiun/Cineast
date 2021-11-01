@@ -11,10 +11,13 @@ Målet var att designa en trevlig hemsida där kravet var att plocka information
 * Backend byggs med ASP.NET C# med kodmönstret MVC.
 
 **Förstasidan**
+
 ![Förstasidan](https://i.imgur.com/Er6r8ai.png)
 
 **Detaljsidan**
+
 ![Detaljsidan](https://i.imgur.com/XK0HOXz.png)
 
 **Sökfunktion samt upvote av film**
+
 ![Förstasidan](https://i.imgur.com/Qk7sWrJ.gif)
