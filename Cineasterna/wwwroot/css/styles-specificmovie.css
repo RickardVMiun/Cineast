@@ -38,17 +38,22 @@
     font-size: 1.2em;
 }
 
-#IMDbtext {
-    font-size: x-large;
+#IMDbtext, #cMDBtextdislikes, #cMDBtextlikes {
+    font-size: medium;
 }
 
-#cMDBtext {
-    font-size: x-large;
+#IMDBvalue, #cMDBvalueup, #cMDBvaluedown {
+    font-weight: bolder;
+    font-size: large;
 }
 
-#rottentomatoestext {
-    font-size: x-large;
+#cMDBvalueup{
+    color: darkgreen;
+    }
+#cMDBvaluedown{
+    color: darkred;
 }
+
 
 #movie-title, #movie-ratings, #movie-stars, #movie-director, #movie-writers {
     color: #34568B;
@@ -60,9 +65,9 @@
 
 #upvoteButton {
     padding-top: 25px;
-    background: #b6ff00;
+    background: #4cff00;
     border-radius: 999px;
-    box-shadow: #b6ff00 0 10px 20px -10px;
+    box-shadow: #b6ff00 0 10px 10px -10px;
     box-sizing: border-box;
     color: #FFFFFF;
     cursor: pointer;
@@ -81,11 +86,12 @@
     border: 0;
 }
 
+
 #downvoteButton {
     padding-top: 25px;
     background: #ff0000;
     border-radius: 999px;
-    box-shadow: #ff0000 0 10px 20px -10px;
+    box-shadow: #ff0000 0 10px 10px -10px;
     box-sizing: border-box;
     color: #FFFFFF;
     cursor: pointer;

@@ -11,34 +11,35 @@
     <h1>Top movie</h1>
 </div>
 <div id="topmovie">
-    
-        <img id="topmovie-image" src="@Model.MoviesFromOMDB[0].Poster">
-    
+
+    <img id="topmovie-image" src="@Model.MoviesFromOMDB[0].Poster">
         <div id="topmovie-plot">
-            <a href="@Url.Action("FetchTopMovie", "Home", FormMethod.Post)">
+            <a href="@Url.Action("FetchTopMovie", "Home", new { title = Model.MoviesFromOMDB[0].Title })">
                 <h2 id="topmovie-title-header-text">@Model.MoviesFromOMDB[0].Title</h2><br>
             </a>
-                <div id="topmovie-plottext">@Model.MoviesFromOMDB[0].Longplot</div>
-                <button id="morelink" style="vertical-align:middle"><span>More..</span>
-                    
-                </button>
-                <div id="topmovie-actors">
-                    <h2 id="topmovie-actors-header-text">Actors</h2>
-                    <p>
-                        @Model.MoviesFromOMDB[0].Actors
-                    </p>
-                </div>
+
+            <div id="topmovie-plottext">@Model.MoviesFromOMDB[0].Longplot</div>
+            <button id="morelink" style="vertical-align:middle">
+                <span>More..</span>
+
+            </button>
+            <div id="topmovie-actors">
+                <h2 id="topmovie-actors-header-text">Actors</h2>
                 <p>
-
+                    @Model.MoviesFromOMDB[0].Actors
                 </p>
-                <br>
-                <h2 id="topmovie-ratings-text">Ratings</h2>
-                <p>IMDB: @Model.MoviesFromOMDB[0].Ratings[0].Value</p>
-                <p>cMDB Upvotes: @Model.MoviesFromOMDB[0].numberOfLikes </p>
-                <p>cMDB Downvotes: @Model.MoviesFromOMDB[0].numberOfDislikes </p>
+            </div>
+            <p>
 
-</div>
-</div>
+            </p>
+            <br>
+            <h2 id="topmovie-ratings-text">Ratings</h2>
+            <p>IMDB: @Model.MoviesFromOMDB[0].Ratings[0].Value</p>
+            <p>cMDB Upvotes: @Model.MoviesFromOMDB[0].numberOfLikes </p>
+            <p>cMDB Downvotes: @Model.MoviesFromOMDB[0].numberOfDislikes </p>
+
+        </div>
+    </div>
     <div id="othermovies-banner">
         <h1>Other movies</h1>
     </div>
@@ -47,11 +48,15 @@
         @for (int i = 1; i < 4; i++)
         {
         <div id="secondmovie">
-            <img src="@Model.MoviesFromOMDB[i].Poster">
-            <h1>@Model.MoviesFromOMDB[i].Title</h1>
-            <p>IMDB: @Model.MoviesFromOMDB[i].Ratings[0].Value </p>
-            <p>cMDB Upvotes: @Model.MoviesFromOMDB[i].numberOfLikes </p>
-            <p>cMDB Downvotes: @Model.MoviesFromOMDB[i].numberOfDislikes </p>
+            <a href="@Url.Action("FetchTopMovie", "Home", new { title = Model.MoviesFromOMDB[i].Title })">
+                <img src="@Model.MoviesFromOMDB[i].Poster">
+            </a>
+            <a href="@Url.Action("FetchTopMovie", "Home", new { title = Model.MoviesFromOMDB[i].Title })">
+                <h1>@Model.MoviesFromOMDB[i].Title</h1>
+            </a>
+                <p>IMDB: @Model.MoviesFromOMDB[i].Ratings[0].Value </p>
+                <p>cMDB Upvotes: @Model.MoviesFromOMDB[i].numberOfLikes </p>
+                <p>cMDB Downvotes: @Model.MoviesFromOMDB[i].numberOfDislikes </p>
         </div>
         }  
     </div>

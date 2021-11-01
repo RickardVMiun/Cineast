@@ -1,10 +1,11 @@
-*{
+* {
     padding: 0;
     margin: 0 auto;
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
-    }
+    transition: all 1s;
+}
 
 .alert {
     padding: 15px;
@@ -12,7 +13,7 @@
     border-radius: 4px;
     color: #3c763d;
     background-color: #dff0d8;
-    padding-top: 25px;
+    padding-top: 15px;
 }
 
 body {
@@ -92,7 +93,7 @@ padding-right: 40px;
   
   .topnav .search-container button {
     float: right;
-    padding: 6px;
+    padding: 25px;
     margin-top: 8px;
     margin-right: 16px;
     background: #ddd;
@@ -179,8 +180,7 @@ padding-right: 40px;
     padding-right: 15px;
 }
 
-#topmovie-plottext{
-
+#topmovie-plottext {
 }
 
 #topmovie-actors{

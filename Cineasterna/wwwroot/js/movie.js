@@ -12,10 +12,14 @@ function like() {
 
     document.querySelector('#upvoteButton').disabled = true;
     document.querySelector('#downvoteButton').disabled = true;
+    document.querySelector('#upvoteButton').style.backgroundColor = "grey";
+    document.querySelector('#downvoteButton').style.backgroundColor = "grey";
+    document.querySelector('#upvoteButton').style.boxShadow = "0px 0px 0px 0px";
+    document.querySelector('#downvoteButton').style.boxShadow = "0px 0px 0px 0px";
 
     let div = document.createElement('div');
     div.className = "alert";
-    div.innerHTML = "<strong>Tack</strong> för din röst";
+    div.innerHTML = "<strong>Thanks</strong> for your vote, it has been registered.";
 
     document.querySelector('#movie-information').append(div);
 }
@@ -34,10 +38,14 @@ function dislike() {
 
     document.querySelector('#upvoteButton').disabled = true;
     document.querySelector('#downvoteButton').disabled = true;
+    document.querySelector('#upvoteButton').style.backgroundColor = "grey";
+    document.querySelector('#downvoteButton').style.backgroundColor = "grey";
+    document.querySelector('#upvoteButton').style.boxShadow = "0px 0px 0px 0px";
+    document.querySelector('#downvoteButton').style.boxShadow = "0px 0px 0px 0px";
 
     let div = document.createElement('div');
     div.className = "alert";
-    div.innerHTML = "<strong>Tack</strong> för din röst";
+    div.innerHTML = "<strong>Thanks</strong> for your vote, it has been registered.";
 
     document.querySelector('#movie-information').append(div);
 }
