@@ -10,12 +10,11 @@ Målet var att designa en trevlig hemsida där kravet var att plocka information
 * En sökfunktion där användaren kan söka på en valfri film, och därefter välja att inkludera filmen om den inte redan finns i cineasternas databas.
 * Backend byggs med ASP.NET C# med kodmönstret MVC.
 
-Förstasidan
-
+**Förstasidan**
 ![Förstasidan](https://i.imgur.com/Er6r8ai.png)
 
-Detaljsidan
+**Detaljsidan**
 ![Detaljsidan](https://i.imgur.com/XK0HOXz.png)
 
-Sökfunktio samt upvote
+**Sökfunktion samt upvote av film**
 ![Förstasidan](https://i.imgur.com/Qk7sWrJ.gif)
