@@ -19,6 +19,7 @@ namespace Cineasterna.Controllers
         }
 
 
+        // Populerar förstasidan med den aktuella toplistan från CMDb.
         public async Task<IActionResult> Index()
         {
             var toplistFromCMDB = await repository.GetTopList();

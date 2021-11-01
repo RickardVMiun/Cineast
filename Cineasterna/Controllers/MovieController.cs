@@ -23,6 +23,7 @@ namespace Cineasterna.Controllers
         }
 
         [HttpPost]
+        // Hämtar film som användaren skriver in i sökfunktionen och skickar in detta i en separat vy.
         public async Task<ActionResult> FetchMovie(SearchViewModel model)
         {
             var toplistFromCMDB = await repository.GetTopList();
@@ -38,12 +39,13 @@ namespace Cineasterna.Controllers
             }
         }
 
-        public async Task<ActionResult> FetchTopMovie(string title)
+        // Hämtar film som användaren klickar på i topplistan och skickar in detta i en separat vy.
+        public async Task<ActionResult> FetchTopMovie(string imdbid)
         {
             var toplistFromCMDB = await repository.GetTopList();
             try
             {
-                var searchedMovie = await repository.GetMovieByTitle(title);
+                var searchedMovie = await repository.GetLongPlot(imdbid);
                 MovieViewModel movieViewModel = new MovieViewModel(searchedMovie, toplistFromCMDB);
                 return View("~/Views/Home/Movie.cshtml", movieViewModel);
             }

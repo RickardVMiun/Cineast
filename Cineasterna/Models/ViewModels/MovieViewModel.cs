@@ -12,7 +12,6 @@ namespace Cineasterna.Models
         public MovieViewModel(GetMoviesOmdbDTO movie, List<GetMoviesDto> topmovies)
         {
             Movie = movie;
-
             for (int i = 0; i < topmovies.Count; i++)
             {
                 if (topmovies[i].imdbID == movie.imdbID)
@@ -20,6 +19,11 @@ namespace Cineasterna.Models
                     movie.numberOfLikes = topmovies[i].numberOfLikes;
                     movie.numberOfDislikes = topmovies[i].numberOfDislikes;
                 }
+            }
+            if (movie.Ratings[0] == null)
+            {
+                movie.Ratings[0].Source = "Internet Movie Database";
+                movie.Ratings[0].Value = "No score registered on IMDb";
             }
         }
     }

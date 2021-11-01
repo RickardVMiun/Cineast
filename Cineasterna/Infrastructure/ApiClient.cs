@@ -11,7 +11,6 @@ namespace Cineasterna.Infrastructure
     public class ApiClient : IApiClient
     {
         private readonly HttpClient client = new HttpClient();
-
         public async Task<T> GetAsync<T>(string endpoint)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, endpoint);
@@ -24,12 +23,10 @@ namespace Cineasterna.Infrastructure
                     var data = JsonConvert.DeserializeObject<T>(responseJson);
                     return data;
                 }
-
                 throw new Exception("Ingen kontakt med API");
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

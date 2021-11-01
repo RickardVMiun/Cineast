@@ -5,32 +5,26 @@
     <link href="~/css/styles.css" rel="stylesheet" />
     <link href="~/css/styles-specificmovie.css" rel="stylesheet" />
     <meta charset="UTF-8" />
-
-
 </head>
 <body>
     <header id="mainheader">
         <h1>Lá Cineaste Familia</h1>
     </header>
-
     <div class="topnav-container">
         <div class="topnav">
             <a class="active" href="/home/index">Home</a>
             <div class="search-container">
                 @using (Html.BeginForm("FetchMovie", "Movie", FormMethod.Post))
                 {
-                    @Html.TextBox("Query")
-                    <input type="submit" value="Search" />
+                    @Html.TextBox("Query", "", new { placeholder = "Movie title here..." })
+                    <input id="searchbutton" type="submit" value="Search" />
                 }
             </div>
         </div>
     </div>
-
-
     @RenderBody()
     <footer id="footer-container">
         <h2>Cineasterna 2021</h2>
-    </footer>
-    
+    </footer> 
 </body>
 </html>

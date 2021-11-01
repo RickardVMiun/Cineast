@@ -1,4 +1,4 @@
-﻿var likeresponse = {};
+﻿// Logik för att hantera likes av en specifik film.
 
 document.querySelector('#upvoteButton').onclick = function () { like() };
 function like() {

@@ -8,7 +8,6 @@ namespace Cineasterna.Models
     public class HomeViewModel
     {
         public List<GetMoviesOmdbDTO> MoviesFromOMDB { get; }
-
         public HomeViewModel(List<GetMoviesOmdbDTO> moviesFromOMDB, List<GetMoviesDto> topmovies)
         {
             MoviesFromOMDB = moviesFromOMDB;
@@ -24,21 +23,15 @@ namespace Cineasterna.Models
                     }
                 }
             }
-
             //Förkorta plot om x.plot är kortare än x bokstäver.
             int amountOfChars = 150;
-
             for (int i = 0; i < moviesFromOMDB.Count; i++)
             {
                 if (moviesFromOMDB[i].Plot.Length > amountOfChars)
                 {
-                    moviesFromOMDB[i].Longplot = moviesFromOMDB[i].Plot.Remove(amountOfChars) + "..";
-                    
+                    moviesFromOMDB[i].Longplot = moviesFromOMDB[i].Plot.Remove(amountOfChars) + "..";  
                 }
             }
-
         }
-
-        
     }
 }

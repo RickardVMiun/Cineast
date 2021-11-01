@@ -32,13 +32,11 @@ namespace Cineasterna.Repositories
         {
             var imdbList = new List<GetMoviesOmdbDTO>();
             var tasks = new List<Task<GetMoviesOmdbDTO>>();
-            // Loopa igenom våran lista och hämta information om filmen från OMDB
+            // Loopa igenom min lista och hämta information om filmen från OMDB
             for (int i = 0; i < moviesFromCmdb.Count(); i++)
             {
-                // Get movie from OMDB
                 var movie = apiClient.GetAsync<GetMoviesOmdbDTO>($"{baseEndpoint2}&i={moviesFromCmdb.ElementAt(i).imdbID}&plot=full");
                 // Lägger vi den i en lista
-                //var model2 = await repository.GetMoviesOmdb(GetMoviesDto[i].imdbID);
                 tasks.Add(movie);
             }
             // När alla filmer är hämtade
@@ -51,12 +49,14 @@ namespace Cineasterna.Repositories
 
             return imdbList;
         }
-
         // Hämta ut vald film med en längre plot
         public async Task<GetMoviesOmdbDTO> GetLongPlot(string imdbID) => await apiClient.GetAsync<GetMoviesOmdbDTO>($"{baseEndpoint2}&i={imdbID}&plot=full");
         
         // Hämta film beroende på titel
         public async Task<GetMoviesOmdbDTO> GetMovieByTitle(string title) => await apiClient.GetAsync<GetMoviesOmdbDTO>($"{baseEndpoint2}&t={title}&plot=full");
         
+        // Hämta film beroende på IMDb-id.
+
+
     }
 }

@@ -21,8 +21,6 @@
     box-sizing: border-box;
 }
 
-
-
 #image-container {
     height: auto;
     max-width: 100%;
@@ -50,19 +48,15 @@
 
 #cMDBvalueup{
     color: darkgreen;
-    }
+}
+
 #cMDBvaluedown{
     color: darkred;
 }
 
-
 #movie-title, #movie-ratings, #movie-stars, #movie-director, #movie-writers {
     color: #34568B;
 }
-
-#cMDBtextlikes, cMDBtextdislikes {
-}
-
 
 #upvoteButton {
     padding-top: 25px;
@@ -86,7 +80,6 @@
     word-break: break-word;
     border: 0;
 }
-
 
 #downvoteButton {
     padding-top: 25px;
