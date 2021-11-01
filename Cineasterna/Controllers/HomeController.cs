@@ -28,36 +28,5 @@ namespace Cineasterna.Controllers
             
             return View(homeViewModel);
          }
-
-        [HttpPost]
-        public async Task<ActionResult> FetchMovie(SearchViewModel model)
-        {
-            var toplistFromCMDB = await repository.GetTopList();
-            try
-            {
-                var searchedMovie = await repository.GetMovieByTitle(model.Query);
-                MovieViewModel movieViewModel = new MovieViewModel(searchedMovie, toplistFromCMDB);
-                return View("~/Views/Home/Movie.cshtml", movieViewModel);
-            }
-            catch (Exception)
-            {
-                return View("~/Views/Home/Error.cshtml");
-            }
-        }
-        public async Task<ActionResult> FetchTopMovie(string title)
-        {
-            var toplistFromCMDB = await repository.GetTopList();
-            try
-            {
-                var searchedMovie = await repository.GetMovieByTitle(title);
-                MovieViewModel movieViewModel = new MovieViewModel(searchedMovie, toplistFromCMDB);
-                return View("~/Views/Home/Movie.cshtml", movieViewModel);
-            }
-            catch (Exception)
-            {
-                return View("~/Views/Home/Error.cshtml");
-            }
-        }
-        
     }
 }

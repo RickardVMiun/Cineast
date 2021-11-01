@@ -1,4 +1,5 @@
-﻿using Cineasterna.Repositories;
+﻿using Cineasterna.Models;
+using Cineasterna.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,37 @@ namespace Cineasterna.Controllers
         public IActionResult Movie()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> FetchMovie(SearchViewModel model)
+        {
+            var toplistFromCMDB = await repository.GetTopList();
+            try
+            {
+                var searchedMovie = await repository.GetMovieByTitle(model.Query);
+                MovieViewModel movieViewModel = new MovieViewModel(searchedMovie, toplistFromCMDB);
+                return View("~/Views/Home/Movie.cshtml", movieViewModel);
+            }
+            catch (Exception)
+            {
+                return View("~/Views/Home/Error.cshtml");
+            }
+        }
+
+        public async Task<ActionResult> FetchTopMovie(string title)
+        {
+            var toplistFromCMDB = await repository.GetTopList();
+            try
+            {
+                var searchedMovie = await repository.GetMovieByTitle(title);
+                MovieViewModel movieViewModel = new MovieViewModel(searchedMovie, toplistFromCMDB);
+                return View("~/Views/Home/Movie.cshtml", movieViewModel);
+            }
+            catch (Exception)
+            {
+                return View("~/Views/Home/Error.cshtml");
+            }
         }
     }
 }

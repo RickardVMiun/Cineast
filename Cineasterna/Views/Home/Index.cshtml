@@ -14,7 +14,7 @@
 
     <img id="topmovie-image" src="@Model.MoviesFromOMDB[0].Poster">
         <div id="topmovie-plot">
-            <a href="@Url.Action("FetchTopMovie", "Home", new { title = Model.MoviesFromOMDB[0].Title })">
+            <a href="@Url.Action("FetchTopMovie", "Movie", new {title = Model.MoviesFromOMDB[0].Title})">
                 <h2 id="topmovie-title-header-text">@Model.MoviesFromOMDB[0].Title</h2><br>
             </a>
 
@@ -48,10 +48,10 @@
         @for (int i = 1; i < 4; i++)
         {
         <div id="secondmovie">
-            <a href="@Url.Action("FetchTopMovie", "Home", new { title = Model.MoviesFromOMDB[i].Title })">
+            <a href="@Url.Action("FetchTopMovie", "Movie", new { title = Model.MoviesFromOMDB[i].Title })">
                 <img src="@Model.MoviesFromOMDB[i].Poster">
             </a>
-            <a href="@Url.Action("FetchTopMovie", "Home", new { title = Model.MoviesFromOMDB[i].Title })">
+            <a href="@Url.Action("FetchTopMovie", "Movie", new { title = Model.MoviesFromOMDB[i].Title })">
                 <h1>@Model.MoviesFromOMDB[i].Title</h1>
             </a>
                 <p>IMDB: @Model.MoviesFromOMDB[i].Ratings[0].Value </p>
